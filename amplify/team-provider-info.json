@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactnativemessaging-dev-162630-authRole",
+      "UnauthRoleArn": "arn:aws:iam::689838107795:role/amplify-reactnativemessaging-dev-162630-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::689838107795:role/amplify-reactnativemessaging-dev-162630-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-reactnativemessaging-dev-162630-deployment",
+      "UnauthRoleName": "amplify-reactnativemessaging-dev-162630-unauthRole",
+      "StackName": "amplify-reactnativemessaging-dev-162630",
+      "StackId": "arn:aws:cloudformation:eu-west-1:689838107795:stack/amplify-reactnativemessaging-dev-162630/c60ffe00-e314-11eb-8d15-064c076ce3b7",
+      "AmplifyAppId": "d2botpbd5nwt6w"
+    }
+  }
+}
