@@ -7,6 +7,7 @@ import { withAuthenticator } from 'aws-amplify-react-native'
 import useCachedResources from './hooks/useCachedResources'
 import useColorScheme from './hooks/useColorScheme'
 import Navigation from './navigation'
+import customTheme from './amplify-theme'
 
 function App() {
   const isLoadingComplete = useCachedResources()
@@ -24,4 +25,4 @@ function App() {
   }
 }
 
-export default withAuthenticator(App)
+export default withAuthenticator(App, { theme: customTheme })
