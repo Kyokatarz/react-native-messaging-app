@@ -2,28 +2,85 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTodo = /* GraphQL */ `
-  query GetTodo($id: ID!) {
-    getTodo(id: $id) {
+export const getRoom = /* GraphQL */ `
+  query GetRoom($id: ID!) {
+    getRoom(id: $id) {
       id
-      name
-      description
+      createdAt
+      updatedAt
+      messages {
+        items {
+          id
+          content
+          when
+          roomId
+          owner
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const listRooms = /* GraphQL */ `
+  query ListRooms(
+    $filter: ModelRoomFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        createdAt
+        updatedAt
+        messages {
+          nextToken
+        }
+      }
+      nextToken
+    }
+  }
+`;
+export const getMessage = /* GraphQL */ `
+  query GetMessage($id: ID!) {
+    getMessage(id: $id) {
+      id
+      content
+      when
+      roomId
+      owner
+      room {
+        id
+        createdAt
+        updatedAt
+        messages {
+          nextToken
+        }
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const listTodos = /* GraphQL */ `
-  query ListTodos(
-    $filter: ModelTodoFilterInput
+export const listMessages = /* GraphQL */ `
+  query ListMessages(
+    $filter: ModelMessageFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        description
+        content
+        when
+        roomId
+        owner
+        room {
+          id
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }

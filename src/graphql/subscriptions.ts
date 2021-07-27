@@ -2,36 +2,87 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo {
-    onCreateTodo {
+export const onCreateMessage = /* GraphQL */ `
+  subscription OnCreateMessage($roomId: ID!) {
+    onCreateMessage(roomId: $roomId) {
       id
-      name
-      description
+      content
+      when
+      roomId
+      owner
+      room {
+        id
+        createdAt
+        updatedAt
+        messages {
+          nextToken
+        }
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo {
-    onUpdateTodo {
+export const onCreateRoom = /* GraphQL */ `
+  subscription OnCreateRoom {
+    onCreateRoom {
       id
-      name
-      description
       createdAt
       updatedAt
+      messages {
+        items {
+          id
+          content
+          when
+          roomId
+          owner
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
 `;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo {
-    onDeleteTodo {
+export const onUpdateRoom = /* GraphQL */ `
+  subscription OnUpdateRoom {
+    onUpdateRoom {
       id
-      name
-      description
       createdAt
       updatedAt
+      messages {
+        items {
+          id
+          content
+          when
+          roomId
+          owner
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const onDeleteRoom = /* GraphQL */ `
+  subscription OnDeleteRoom {
+    onDeleteRoom {
+      id
+      createdAt
+      updatedAt
+      messages {
+        items {
+          id
+          content
+          when
+          roomId
+          owner
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
 `;
