@@ -4,68 +4,16 @@ import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 import { withAuthenticator } from 'aws-amplify-react-native'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 
-import awsconfig from './src/aws-exports'
-import { createTodo } from './src/graphql/mutations'
-import { listTodos } from './src/graphql/queries'
+import awsconfig from './aws-exports'
 
 const initialState = { name: '', description: '' }
 
 Auth.configure(awsconfig)
 
 const App = () => {
-  const [formState, setFormState] = useState(initialState)
-  const [todos, setTodos] = useState([])
-
-  useEffect(() => {
-    fetchTodos()
-  }, [])
-
-  function setInput(key, value) {
-    setFormState({ ...formState, [key]: value })
-  }
-
-  async function fetchTodos() {
-    try {
-      const todoData = await API.graphql(graphqlOperation(listTodos))
-      const todos = todoData.data.listTodos.items
-      setTodos(todos)
-    } catch (err) {
-      console.log('error fetching todos')
-    }
-  }
-
-  async function addTodo() {
-    try {
-      const todo = { ...formState }
-      setTodos([...todos, todo])
-      setFormState(initialState)
-      await API.graphql(graphqlOperation(createTodo, { input: todo }))
-    } catch (err) {
-      console.log('error creating todo:', err)
-    }
-  }
-
   return (
     <View style={styles.container}>
-      <TextInput
-        onChangeText={(val) => setInput('name', val)}
-        style={styles.input}
-        value={formState.name}
-        placeholder='Name'
-      />
-      <TextInput
-        onChangeText={(val) => setInput('description', val)}
-        style={styles.input}
-        value={formState.description}
-        placeholder='Description'
-      />
-      <Button title='Create Todo' onPress={addTodo} />
-      {todos.map((todo, index) => (
-        <View key={todo.id ? todo.id : index} style={styles.todo}>
-          <Text style={styles.todoName}>{todo.name}</Text>
-          <Text>{todo.description}</Text>
-        </View>
-      ))}
+      <Message text='abc' isUserMessage={false} />
     </View>
   )
 }
