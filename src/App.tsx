@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 import { withAuthenticator } from 'aws-amplify-react-native'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 
+import Message from './components/Message/Message'
 import awsconfig from './aws-exports'
 
 const initialState = { name: '', description: '' }
